@@ -1,4 +1,4 @@
-package edu.eci.arsw.ecidrawapi;
+package edu.eci.arsw.ecidraw;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

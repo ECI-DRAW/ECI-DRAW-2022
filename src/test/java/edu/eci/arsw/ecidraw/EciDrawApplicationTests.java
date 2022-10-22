@@ -1,4 +1,4 @@
-package edu.eci.arsw.ecidrawapi;
+package edu.eci.arsw.ecidraw;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
