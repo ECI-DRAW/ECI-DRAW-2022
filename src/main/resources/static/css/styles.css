@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(171, 16, 41, 0.694);
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 50%;
+    border: 0px;
+}
+
+input {
+    border-radius: 5%;
+}
+
+canvas {
+    padding: auto;
+    background-color: rgb(241, 241, 241);
+    border: 4px double rgba(171, 16, 41, 0.694);
+    border-radius: 2%;
+}
+
+.application {
+    display: none;
+}
