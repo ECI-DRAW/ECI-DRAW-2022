@@ -23,9 +23,13 @@
     <div id="user">
         <p>Digite su nombre:</p>
         <input type="text" id="userId" name="userId">
-        <button onclick="userId()">Submit</button>
-    </div>
+        <p> Digite nombre del dibujo:</p>
+        <input type="text" id="drawingId" name="drawingId">
 
+        <button class="button1" onclick="userId()">Submit</button>
+    </div>
+    </br>
+    </br>
     <div id="application" class="application">
         <button onclick="clearBoard()">Clear</button>
         </br>
@@ -40,7 +44,6 @@
         <label for="lineWidth">Line Width</label>
         <input id="lineWidth" name='lineWidth' type="number" value="3" />
         <button onclick="lineWidthSetter()">Set</button>
-
     </div>
 
 </body>
