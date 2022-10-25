@@ -110,3 +110,26 @@ h1,
     margin-bottom: 3rem !important;
     font-size: 1rem;
 }
+
+.box{
+    width: 600px;
+    height: 100px;
+    padding-left: 50px;
+    background-color: #2bc035;
+    color: rgb(189, 41, 41);
+    text-align: right;
+    line-height: 10px;
+    margin: 100px;
+    float: inline-end;
+    font-size: 30px;
+    font-family: Arial;
+  }
+.box1 {
+
+    background-color: #ffffff;
+    -webkit-transition: font-size 1s ease;
+    transition: font-size 1s ease;
+}
+.box1:hover{
+    font-size: 80px;
+}
