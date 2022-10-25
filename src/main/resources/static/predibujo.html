@@ -1,0 +1,45 @@
+<!-- generate html template-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ECI-DRAW Dibujar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <script src="js/predibujo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+<header>
+    <div class="container px-4 px-lg-5 text-center" style="position: relative; height: auto;">
+        <h1>Modo Dibujar</h1>
+    </div>
+</header>
+
+<body>
+    <div class="container px-4 px-lg-5 text-center" style="position: relative; height: auto;">
+        <div id="user">
+            <p>Digite su nombre:</p>
+            <input type="text" id="userId" name="userId">
+            </br>
+            </br>
+            <p> Digite nombre del dibujo:</p>
+            <input type="text" id="drawingId" name="drawingId">
+            </br>
+            </br>
+            <button id="btn" class="btn btn-primary"
+                onclick="userId(); window.location.href='/dibujar.html';">Submit</button>
+            </br>
+            </br>
+        </div>
+</body>
+
+</html>

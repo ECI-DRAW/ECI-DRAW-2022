@@ -2,39 +2,9 @@ var paint = (0, 0, 0);
 var stomp;
 let lineWidth = 3;
 
-function userId() {
-    const xhttp = new XMLHttpRequest();
-    var name = document.getElementsByName("userId")[0].value;
-    xhttp.onload = function () {
-        document.getElementById("user").style.display = "none";
-        document.getElementById("application").style.display = "block";
-    }
-    xhttp.open("GET", "/setname?name=" + name);
-    xhttp.send()
-}
-
 function setup() {
     createCanvas(850, 430);
     stomp();
-}
-
-function draw() {
-    if (mouseIsPressed === true) {
-        fill(paint);
-        stroke(paint);
-        strokeWeight(lineWidth);
-        line(mouseX, mouseY, pmouseX, pmouseY);
-        var json = {
-            xPos: mouseX,
-            yPos: mouseY,
-            pxPos: pmouseX,
-            pyPos: pmouseY,
-            colors: paint,
-            lwidth: lineWidth,
-            eraser: false,
-        }
-        refresh(json);
-    }
 }
 
 function stomp() {
@@ -80,6 +50,7 @@ function lineWidthSetter() {
     lineWidth = document.getElementById("lineWidth").value;
     strokeWeight(lineWidth);
 }
+
 application.addEventListener('change', (e) => {
     if (e.target.id === 'line-width') {
         lineWidth = e.target.value;
