@@ -127,9 +127,9 @@ h1,
 .box1 {
 
     background-color: #ffffff;
-    -webkit-transition: font-size 1s ease;
-    transition: font-size 1s ease;
+    -webkit-transition: color 1s linear;
+    transition: color 1s linear;
 }
 .box1:hover{
-    font-size: 80px;
+    color: purple;
 }
