@@ -37,7 +37,6 @@ function stomp() {
                 stroke(json.colors);
                 strokeWeight(json.lwidth);
                 line(json.xPos, json.yPos, json.pxPos, json.pyPos);
-
             } else {
                 clear();
             }
@@ -70,8 +69,3 @@ function lineWidthSetter() {
     strokeWeight(lineWidth);
 }
 
-application.addEventListener('change', (e) => {
-    if (e.target.id === 'line-width') {
-        lineWidth = e.target.value;
-    }
-});

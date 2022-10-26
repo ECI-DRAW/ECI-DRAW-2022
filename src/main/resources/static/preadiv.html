@@ -10,16 +10,17 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <script src="js/predibujo.js"></script>
+    <script src="js/preadiv.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
+
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
 <header>
     <div class="container px-4 px-lg-5 text-center" style="position: relative; height: auto;">
-        <h1>Modo Dibujar</h1>
+        <h1>Modo Adivinar</h1>
     </div>
 </header>
 
@@ -27,15 +28,11 @@
     <div class="container px-4 px-lg-5 text-center" style="position: relative; height: auto;">
         <div id="user">
             <p>Digite su nombre:</p>
-            <input type="text" id="userId" name="userId">
-            </br>
-            </br>
-            <p> Digite nombre del dibujo:</p>
-            <input type="text" id="drawingId" name="drawingId">
+            <input type="text" id="gUserId" name="gUserId">
             </br>
             </br>
             <button id="btn" class="btn btn-primary"
-                onclick="userId(); window.location.href='/dibujar.html';">Submit</button>
+                onclick="userId(); window.location.href='/adivinar.html';">Submit</button>
             </br>
             </br>
         </div>

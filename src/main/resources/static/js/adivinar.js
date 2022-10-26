@@ -1,6 +1,7 @@
 var paint = (0, 0, 0);
 var stomp;
 let lineWidth = 3;
+var drawName;
 
 function setup() {
     createCanvas(850, 430);
@@ -51,8 +52,13 @@ function lineWidthSetter() {
     strokeWeight(lineWidth);
 }
 
-application.addEventListener('change', (e) => {
-    if (e.target.id === 'line-width') {
-        lineWidth = e.target.value;
+function adivinar() {
+    let guess = prompt("Ingrese su respuesta");
+    console.log(drawName);
+    if (guess == drawName) {
+        alert("¡Correcto!");
+    } else {
+        alert("Intente de nuevo");
     }
-});
+    document.getElementById("btnguess").innerHTML = "Adivinar";
+}
