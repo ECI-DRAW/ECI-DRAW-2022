@@ -172,27 +172,18 @@ h1,
     font-size: 1rem;
 }
 
-.box {
-    width: 600px;
+.box1 {
+    width: 1000px;
     height: 100px;
-    padding-left: 50px;
-    background-color: #2bc035;
-    color: rgb(189, 41, 41);
-    text-align: right;
-    line-height: 10px;
-    margin: 100px;
-    float: inline-end;
-    font-size: 30px;
+    padding-bottom: 100px;
+    color: rgb(255, 0, 0);
+    -webkit-transition: font-size 1s ease;
+    transition: font-size 1s ease;
+    font-size: 55px;
+    font-weight:  bolder;
     font-family: Arial;
 }
 
-.box1 {
-
-    background-color: #ffffff;
-    -webkit-transition: color 1s linear;
-    transition: color 1s linear;
-}
-
 .box1:hover {
-    color: purple;
+    font-size: 80px;
 }
