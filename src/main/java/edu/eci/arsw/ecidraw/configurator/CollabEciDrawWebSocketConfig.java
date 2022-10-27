@@ -1,4 +1,4 @@
-package edu.eci.arsw.ecidraw;
+package edu.eci.arsw.ecidraw.configurator;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -21,5 +21,4 @@ public class CollabEciDrawWebSocketConfig extends AbstractWebSocketMessageBroker
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
     }
-
 }
