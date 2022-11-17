@@ -23,10 +23,10 @@ public class SesionRest {
     @Autowired
     private SesionService sesionService;
 
-    @PutMapping("/newsesion")
-    private ResponseEntity<Sesion> createSesion(@PathParam("id") Long id, @PathParam("name") String name,
+    @PostMapping("/newsesion")
+    private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("name") String name,
             @PathParam("answer") String answer) {
-        Sesion sesion = sesionService.createSesion(id, name, answer);
+        Sesion sesion = sesionService.createSesion(idSesion, name, answer);
         return ResponseEntity.ok(sesion);
     }
 
