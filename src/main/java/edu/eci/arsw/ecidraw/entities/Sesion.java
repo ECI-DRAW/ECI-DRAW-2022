@@ -16,7 +16,7 @@ public class Sesion implements Serializable {
      * Identificador de la sesion
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idSesion", unique = true, nullable = false)
     private Long idSesion;
 
     /**

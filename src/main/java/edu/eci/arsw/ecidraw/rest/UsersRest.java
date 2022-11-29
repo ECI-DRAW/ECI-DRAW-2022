@@ -8,6 +8,7 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,26 @@ public class UsersRest {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/getUserById")
-    private ResponseEntity<Optional<Users>> getUserById(@PathParam("id") Long id) {
-        Optional<Users> user = usersService.getUserById(id);
+    @PostMapping("/newuser")
+    private ResponseEntity<Users> createUser(@PathParam("username") String username) {
+        Users user = new Users(username);
+        try {
+            return ResponseEntity.ok(usersService.createUser(user));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    // @GetMapping("/getUserById")
+    // private ResponseEntity<Optional<Users>> getUserById(@PathParam("id") Long id)
+    // {
+    // Optional<Users> user = usersService.getUserById(id);
+    // return ResponseEntity.ok(user);
+    // }
+
+    @GetMapping("/getUserByName")
+    private ResponseEntity<Users> getUserByName(@PathParam("username") String username) {
+        Users user = usersService.getUser(username);
         return ResponseEntity.ok(user);
     }
 

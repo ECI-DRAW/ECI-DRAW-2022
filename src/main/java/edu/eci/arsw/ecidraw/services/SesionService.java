@@ -16,10 +16,8 @@ public class SesionService {
     /*
      * metodo que crea una sesion
      */
-    public Sesion createSesion(Long id, String name, String answer) {
-        Sesion sesion = new Sesion(id, name, answer);
-        sesionRepository.insertSesion(id, name, answer);
-        return sesion;
+    public Sesion createSesion(Sesion sesion) {
+        return sesionRepository.save(sesion);
     }
 
     public void delete(Sesion c) {

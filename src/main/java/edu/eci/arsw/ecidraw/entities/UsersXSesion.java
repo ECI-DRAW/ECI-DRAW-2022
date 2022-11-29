@@ -1,6 +1,7 @@
 package edu.eci.arsw.ecidraw.entities;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -16,15 +17,12 @@ public class UsersXSesion {
     @EmbeddedId
     private PrimaryUxS id;
 
-    public UsersXSesion() {
-    }
-
     public UsersXSesion(PrimaryUxS id) {
         this.id = id;
     }
 
-    public UsersXSesion(Users user, Sesion sesion) {
-        this.id = new PrimaryUxS(user, sesion);
+    public UsersXSesion(Users idUser, Sesion idSesion) {
+        this.id = new PrimaryUxS(idUser, idSesion);
     }
 
     public PrimaryUxS getId() {

@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.eci.arsw.ecidraw.entities.Users;
 import edu.eci.arsw.ecidraw.entities.Sesion;
+import edu.eci.arsw.ecidraw.entities.UsersXSesion;
 import edu.eci.arsw.ecidraw.services.SesionService;
+import edu.eci.arsw.ecidraw.services.UsersService;
+import edu.eci.arsw.ecidraw.services.UsersXSessionService;
 
 @RestController
 @RequestMapping(value = "/api/sesions")
@@ -26,8 +30,12 @@ public class SesionRest {
     @PostMapping("/newsesion")
     private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("name") String name,
             @PathParam("answer") String answer) {
-        Sesion sesion = sesionService.createSesion(idSesion, name, answer);
-        return ResponseEntity.ok(sesion);
+        Sesion sesion = new Sesion(idSesion, answer, name);
+        try {
+            return ResponseEntity.ok(sesionService.createSesion(sesion));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/getSesionById")

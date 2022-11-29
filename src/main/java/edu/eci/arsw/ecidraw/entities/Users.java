@@ -33,6 +33,10 @@ public class Users implements Serializable {
         this.username = username;
     }
 
+    public Users(String username) {
+        this.username = username;
+    }
+
     public Long getIdUser() {
         return idUser;
     }

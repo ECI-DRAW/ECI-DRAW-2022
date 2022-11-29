@@ -18,19 +18,19 @@ public interface UsersXSesionRepository extends JpaRepository<UsersXSesion, Long
     /**
      * Busca usuarios por su id
      */
-    @Query("SELECT c FROM UsersXSesion c WHERE idUser=:userId")
-    List<UsersXSesion> getUsersXSessionByUserId(@Param("userId") Long userId);
+    @Query("SELECT c FROM UsersXSesion c WHERE idUser=:idUser")
+    List<UsersXSesion> getUsersXSessionByUserId(@Param("idUser") Long idUser);
 
     /**
      * Busca sesiones por su id
      */
-    @Query("SELECT c FROM UsersXSesion c WHERE idSesion=:sessionId")
-    List<UsersXSesion> getUsersXSessionBySessionId(@Param("sessionId") Long sessionId);
+    @Query("SELECT c FROM UsersXSesion c WHERE idSesion=:idSesion")
+    List<UsersXSesion> getUsersXSessionBySessionId(@Param("idSesion") Long idSesion);
 
     /**
      * Busca usuarios por su id y sesion por su id
      */
-    @Query("SELECT c FROM UsersXSesion c WHERE idUser=:userId AND idSesion=:sessionId")
-    Optional<UsersXSesion> getUsersXSessionByUserIdAndSessionId(@Param("userId") Long userId,
-            @Param("sessionId") Long sessionId);
+    @Query("SELECT c FROM UsersXSesion c WHERE idUser=:idUser AND idSesion=:idSesion")
+    Optional<UsersXSesion> getUsersXSessionByUserIdAndSessionId(@Param("idUser") Long idUser,
+            @Param("idSesion") Long idSesion);
 }
