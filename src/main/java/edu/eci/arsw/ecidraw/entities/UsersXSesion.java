@@ -21,8 +21,8 @@ public class UsersXSesion {
         this.id = id;
     }
 
-    public UsersXSesion(Users idUser, Sesion idSesion) {
-        this.id = new PrimaryUxS(idUser, idSesion);
+    public UsersXSesion(Sesion idSesion, Users idUser) {
+        this.id = new PrimaryUxS(idSesion, idUser);
     }
 
     public PrimaryUxS getId() {
@@ -52,20 +52,21 @@ public class UsersXSesion {
 
 @Embeddable
 class PrimaryUxS implements Serializable {
+
+    @ManyToOne
+    @JoinColumn(name = "idSesion", nullable = false, referencedColumnName = "idSesion")
+    private Sesion idSesion;
+
     @ManyToOne
     @JoinColumn(name = "idUser", nullable = false)
     private Users idUser;
 
-    @ManyToOne
-    @JoinColumn(name = "idSesion", nullable = false)
-    private Sesion idSesion;
-
     public PrimaryUxS() {
     }
 
-    public PrimaryUxS(Users idUser, Sesion idSesion) {
-        this.idUser = idUser;
+    public PrimaryUxS(Sesion idSesion, Users idUser) {
         this.idSesion = idSesion;
+        this.idUser = idUser;
     }
 
     public Users getIdUser() {
@@ -83,5 +84,4 @@ class PrimaryUxS implements Serializable {
     public void setIdSesion(Sesion idSesion) {
         this.idSesion = idSesion;
     }
-
 }

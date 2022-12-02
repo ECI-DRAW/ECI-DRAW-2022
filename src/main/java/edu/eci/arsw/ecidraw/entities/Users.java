@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +24,12 @@ public class Users implements Serializable {
     /**
      * Columna de nombre del usuario
      */
-    @Column(name = "username", unique = true, nullable = false)
+    @Column(name = "username", nullable = false)
     private String username;
+
+    // @ManyToOne
+    // @JoinColumn(name = "idSesion", referencedColumnName = "idSesion")
+    // private Sesion idSesion;
 
     public Users() {
     }
@@ -36,6 +42,11 @@ public class Users implements Serializable {
     public Users(String username) {
         this.username = username;
     }
+
+    // public Users(String username, Sesion idSesion) {
+    // this.username = username;
+    // this.idSesion = idSesion;
+    // }
 
     public Long getIdUser() {
         return idUser;

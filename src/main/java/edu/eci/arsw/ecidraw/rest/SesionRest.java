@@ -28,9 +28,9 @@ public class SesionRest {
     private SesionService sesionService;
 
     @PostMapping("/newsesion")
-    private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("name") String name,
+    private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("host") String host,
             @PathParam("answer") String answer) {
-        Sesion sesion = new Sesion(idSesion, answer, name);
+        Sesion sesion = new Sesion(idSesion, host, answer);
         try {
             return ResponseEntity.ok(sesionService.createSesion(sesion));
         } catch (Exception e) {

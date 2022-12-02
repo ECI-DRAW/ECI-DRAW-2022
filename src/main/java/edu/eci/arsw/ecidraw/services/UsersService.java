@@ -25,11 +25,11 @@ public class UsersService {
         return usersRepository.findAll();
     }
 
-    public Users getUser(String username) {
+    public Long findByUsername(String username) {
         return usersRepository.findByUsername(username);
     }
 
-    // public Optional<Users> getUserById(Long id) {
-    // return usersRepository.findById(id);
-    // }
+    public Optional<Users> getUserById(Long id) {
+        return usersRepository.findById(id);
+    }
 }

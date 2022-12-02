@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.eci.arsw.ecidraw.entities.Sesion;
 import edu.eci.arsw.ecidraw.entities.Users;
+import edu.eci.arsw.ecidraw.services.SesionService;
 import edu.eci.arsw.ecidraw.services.UsersService;
 
 @RestController
@@ -21,6 +23,7 @@ public class UsersRest {
 
     @Autowired
     private UsersService usersService;
+    private SesionService sesionService;
 
     @PostMapping("/newuser")
     private ResponseEntity<Users> createUser(@PathParam("username") String username) {
@@ -32,16 +35,27 @@ public class UsersRest {
         }
     }
 
-    // @GetMapping("/getUserById")
-    // private ResponseEntity<Optional<Users>> getUserById(@PathParam("id") Long id)
-    // {
-    // Optional<Users> user = usersService.getUserById(id);
-    // return ResponseEntity.ok(user);
+    // @PostMapping("/newHostUser")
+    // private ResponseEntity<Users> createHostUser(@PathParam("username") String
+    // username,
+    // @PathParam("idSesion") Sesion idSesion) {
+    // Users user = new Users(username, idSesion);
+    // try {
+    // return ResponseEntity.ok(usersService.createUser(user));
+    // } catch (Exception e) {
+    // return ResponseEntity.badRequest().build();
+    // }
     // }
 
+    @GetMapping("/getUserById")
+    private ResponseEntity<Optional<Users>> getUserById(@PathParam("id") Long id) {
+        Optional<Users> user = usersService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+
     @GetMapping("/getUserByName")
-    private ResponseEntity<Users> getUserByName(@PathParam("username") String username) {
-        Users user = usersService.getUser(username);
+    private ResponseEntity<Long> getUserByName(@PathParam("username") String username) {
+        Long user = usersService.findByUsername(username);
         return ResponseEntity.ok(user);
     }
 

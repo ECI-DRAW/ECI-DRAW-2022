@@ -17,8 +17,8 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
      * @param name Nombre de la sesion
      * @return Sesion
      */
-    @Query("SELECT c FROM Sesion c WHERE name=:name")
-    Optional<Sesion> getSesionByName(@Param("name") String name);
+    @Query("SELECT c FROM Sesion c WHERE host=:host")
+    Optional<Sesion> getSesionByName(@Param("host") String host);
 
     /**
      * Busca una sesion por su respuesta
@@ -32,6 +32,6 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
     /**
      * Inserta una sesion
      */
-    @Query(value = "INSERT INTO sesion (id, name, answer) VALUES (:id, :name, :answer)", nativeQuery = true)
-    void insertSesion(@Param("id") Long id, @Param("name") String name, @Param("answer") String answer);
+    @Query(value = "INSERT INTO sesion (id, host, answer) VALUES (:id, :host, :answer)", nativeQuery = true)
+    void insertSesion(@Param("id") Long id, @Param("host") String name, @Param("answer") String answer);
 }

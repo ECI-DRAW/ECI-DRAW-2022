@@ -28,8 +28,8 @@ public class SesionService {
         return sesionRepository.findAll();
     }
 
-    public Optional<Sesion> getSesionByName(String name) {
-        return sesionRepository.getSesionByName(name);
+    public Optional<Sesion> getSesionByName(String host) {
+        return sesionRepository.getSesionByName(host);
     }
 
     public Optional<Sesion> getSesionByAnswer(String answer) {

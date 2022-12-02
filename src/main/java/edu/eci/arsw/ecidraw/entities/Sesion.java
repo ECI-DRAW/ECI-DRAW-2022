@@ -12,32 +12,37 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Sesion")
 public class Sesion implements Serializable {
-    /**
-     * Identificador de la sesion
-     */
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long nSesion;
+
+    /**
+     * Columna id de la sesion
+     */
     @Column(name = "idSesion", unique = true, nullable = false)
     private Long idSesion;
 
     /**
-     * Columna respuesta de la sesion
+     * Nombre host de la sesion
      */
-    @Column(name = "answer", unique = true, nullable = false)
-    private String answer;
+
+    @Column(name = "host", nullable = false)
+    private String host;
 
     /**
-     * Columna de nombre de la sesion
+     * Columna respuesta de la sesion
      */
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "answer", nullable = false)
+    private String answer;
 
     public Sesion() {
     }
 
-    public Sesion(Long idSesion, String answer, String name) {
+    public Sesion(Long idSesion, String host, String answer) {
         this.idSesion = idSesion;
+        this.host = host;
         this.answer = answer;
-        this.name = name;
     }
 
     public Long getIdSesion() {
@@ -57,11 +62,11 @@ public class Sesion implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return host;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.host = name;
     }
 
 }

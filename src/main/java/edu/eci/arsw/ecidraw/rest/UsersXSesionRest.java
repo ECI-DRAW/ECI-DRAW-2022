@@ -29,13 +29,16 @@ public class UsersXSesionRest {
     private UsersXSessionService usersXSesionService;
 
     @PostMapping("/newUserXSesion")
-    private ResponseEntity<UsersXSesion> newUsersXSesion(@PathParam("idUser") String idUser,
+    private ResponseEntity<UsersXSesion> newUsersXSesion(@PathParam("username") String username,
             @PathParam("idSesion") Long idSesion) {
+        System.out.println("username: " + username);
         System.out.println("idSesion: " + idSesion);
-        System.out.println("idUser: " + idUser);
-        Users user = usersService.getUser(idUser);
         Optional<Sesion> sesion = sesionService.getSesionById(idSesion);
-        UsersXSesion usersXSesion = new UsersXSesion(user, sesion.get());
+        System.out.println("sesion: " + sesion);
+        Long user = usersService.findByUsername(username);
+        System.out.println("user: " + user);
+        Optional<Users> estesi = usersService.getUserById(user);
+        UsersXSesion usersXSesion = new UsersXSesion(sesion.get(), estesi.get());
         return ResponseEntity.ok(usersXSesionService.createUsersXSesion(usersXSesion));
     }
 }
