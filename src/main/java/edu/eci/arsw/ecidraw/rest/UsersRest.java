@@ -35,17 +35,16 @@ public class UsersRest {
         }
     }
 
-    // @PostMapping("/newHostUser")
-    // private ResponseEntity<Users> createHostUser(@PathParam("username") String
-    // username,
-    // @PathParam("idSesion") Sesion idSesion) {
-    // Users user = new Users(username, idSesion);
-    // try {
-    // return ResponseEntity.ok(usersService.createUser(user));
-    // } catch (Exception e) {
-    // return ResponseEntity.badRequest().build();
-    // }
-    // }
+    @PostMapping("/newGuestUser")
+    private ResponseEntity<Users> createGUser(@PathParam("username") String username,
+            @PathParam("idSesion") Long idSesion) {
+        try {
+            usersService.insertUser(username, idSesion);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
     @GetMapping("/getUserById")
     private ResponseEntity<Optional<Users>> getUserById(@PathParam("id") Long id) {

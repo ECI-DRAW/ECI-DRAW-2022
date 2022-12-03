@@ -17,8 +17,8 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
      * @param name Nombre de la sesion
      * @return Sesion
      */
-    @Query("SELECT c FROM Sesion c WHERE host=:host")
-    Optional<Sesion> getSesionByName(@Param("host") String host);
+    @Query("SELECT c FROM Sesion c WHERE hostn=:hostn")
+    Optional<Sesion> getSesionByName(@Param("hostn") String hostn);
 
     /**
      * Busca una sesion por su respuesta
@@ -28,6 +28,9 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
      */
     @Query("SELECT c FROM Sesion c WHERE answer=:answer")
     Optional<Sesion> getSesionByAnswer(@Param("answer") String answer);
+
+    @Query("SELECT c FROM Sesion c WHERE idSesion=:idSesion")
+    Optional<Sesion> getSesionById(@Param("idSesion") Long idSesion);
 
     /**
      * Inserta una sesion

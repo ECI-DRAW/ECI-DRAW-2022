@@ -28,15 +28,19 @@ public class SesionService {
         return sesionRepository.findAll();
     }
 
-    public Optional<Sesion> getSesionByName(String host) {
-        return sesionRepository.getSesionByName(host);
+    public Optional<Sesion> getSesionByName(String hostn) {
+        return sesionRepository.getSesionByName(hostn);
     }
 
     public Optional<Sesion> getSesionByAnswer(String answer) {
         return sesionRepository.getSesionByAnswer(answer);
     }
 
-    public Optional<Sesion> getSesionById(Long id) {
+    public Optional<Sesion> findById(Long id) {
         return sesionRepository.findById(id);
+    }
+
+    public Optional<Sesion> getSesionById(Long idSesion) {
+        return sesionRepository.getSesionById(idSesion);
     }
 }

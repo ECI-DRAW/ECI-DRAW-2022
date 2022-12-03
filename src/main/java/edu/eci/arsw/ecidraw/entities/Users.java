@@ -2,6 +2,7 @@ package edu.eci.arsw.ecidraw.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +29,9 @@ public class Users implements Serializable {
     @Column(name = "username", nullable = false)
     private String username;
 
-    // @ManyToOne
-    // @JoinColumn(name = "idSesion", referencedColumnName = "idSesion")
-    // private Sesion idSesion;
+    @ManyToOne(cascade = { CascadeType.ALL })
+    @JoinColumn(name = "idSesion", nullable = false, referencedColumnName = "idSesion")
+    private Sesion idSesion;
 
     public Users() {
     }
@@ -43,10 +45,10 @@ public class Users implements Serializable {
         this.username = username;
     }
 
-    // public Users(String username, Sesion idSesion) {
-    // this.username = username;
-    // this.idSesion = idSesion;
-    // }
+    public Users(String username, Sesion idSesion) {
+        this.username = username;
+        this.idSesion = idSesion;
+    }
 
     public Long getIdUser() {
         return idUser;

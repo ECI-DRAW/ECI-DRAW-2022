@@ -23,4 +23,10 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     // @Query("SELECT c FROM Users c WHERE id=:id")
     // Optional<Users> findByUsername(@Param("id") String id);
 
+    /**
+     * Inserta una sesion
+     */
+    @Query(value = "INSERT INTO users (username, id_sesion) VALUES (:username, :id_sesion)", nativeQuery = true)
+    void insertUser(@Param("username") String username, @Param("id_sesion") Long id_sesion);
+
 }

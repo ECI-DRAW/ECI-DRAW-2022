@@ -28,9 +28,9 @@ public class SesionRest {
     private SesionService sesionService;
 
     @PostMapping("/newsesion")
-    private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("host") String host,
+    private ResponseEntity<Sesion> createSesion(@PathParam("idSesion") Long idSesion, @PathParam("hostn") String hostn,
             @PathParam("answer") String answer) {
-        Sesion sesion = new Sesion(idSesion, host, answer);
+        Sesion sesion = new Sesion(idSesion, hostn, answer);
         try {
             return ResponseEntity.ok(sesionService.createSesion(sesion));
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class SesionRest {
 
     @GetMapping("/getSesionById")
     private ResponseEntity<Optional<Sesion>> getSesionById(@PathParam("id") Long id) {
-        Optional<Sesion> sesion = sesionService.getSesionById(id);
+        Optional<Sesion> sesion = sesionService.findById(id);
         return ResponseEntity.ok(sesion);
     }
 

@@ -21,6 +21,10 @@ public class UsersService {
         usersRepository.delete(c);
     }
 
+    public void insertUser(String username, Long id_sesion) {
+        usersRepository.insertUser(username, id_sesion);
+    }
+
     public List<Users> getAllUsers() {
         return usersRepository.findAll();
     }
