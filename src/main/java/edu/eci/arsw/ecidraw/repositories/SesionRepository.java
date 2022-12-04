@@ -32,6 +32,9 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
     @Query("SELECT c FROM Sesion c WHERE idSesion=:idSesion")
     Optional<Sesion> getSesionById(@Param("idSesion") Long idSesion);
 
+    @Query("SELECT answer FROM Sesion WHERE idSesion=:idSesion")
+    String getSesionAnswer(@Param("idSesion") Long idSesion);
+
     /**
      * Inserta una sesion
      */

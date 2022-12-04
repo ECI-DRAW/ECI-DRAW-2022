@@ -43,4 +43,8 @@ public class SesionService {
     public Optional<Sesion> getSesionById(Long idSesion) {
         return sesionRepository.getSesionById(idSesion);
     }
+
+    public String getSesionAnswer(Long idSesion) {
+        return sesionRepository.getSesionAnswer(idSesion);
+    }
 }

@@ -1,11 +1,14 @@
 package edu.eci.arsw.ecidraw.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,4 +65,15 @@ public class SesionRest {
         return ResponseEntity.ok(sesion);
     }
 
+    @GetMapping("/getSesionAnswer")
+    private ResponseEntity<Map<String, String>> getSesionAnswer(@PathParam("idSesion") Long idSesion) {
+        try {
+            String answer = sesionService.getSesionAnswer(idSesion);
+            Map<String, String> respuesta = new HashMap<String, String>();
+            respuesta.put("answer", answer);
+            return ResponseEntity.ok(respuesta);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
 }

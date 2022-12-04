@@ -30,7 +30,8 @@ function stomp() {
     var socket = new SockJS("/stompEndpoint");
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
-        stompClient.subscribe("/topic/board" + sessionStorage.getItem("idSesion"), function (event) {
+        clearBoard()
+        stompClient.subscribe("/topic/board/" + sessionStorage.getItem("idSesion"), function (event) {
             var json = JSON.parse(event.body);
             if (!json.eraser) {
                 fill(json.colors);
@@ -61,11 +62,10 @@ function clearBoard() {
 }
 
 function refresh(json) {
-    stompClient.send("/topic/board" + sessionStorage.getItem("idSesion"), {}, JSON.stringify(json));
+    stompClient.send("/topic/board/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify(json));
 }
 
 function lineWidthSetter() {
     lineWidth = document.getElementById("lineWidth").value;
     strokeWeight(lineWidth);
 }
-

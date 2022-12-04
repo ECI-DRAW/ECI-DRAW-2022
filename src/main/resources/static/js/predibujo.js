@@ -6,6 +6,7 @@ async function userId() {
     try {
         const ses = await createSesion(idSesion, name, answer);
         sessionStorage.setItem("idSesion", idSesion);
+        sessionStorage.setItem("answer", answer);
         //const us = await createUser(name);
         //const usxses = await connectUserxSesion(name, idSesion);
         //setTimeout(() => { us }, 1500);

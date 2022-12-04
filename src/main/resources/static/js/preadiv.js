@@ -7,7 +7,7 @@ async function userId() {
     try {
         const guestu = await createGUser(username, idSesion);
     } catch (error) {
-        createGUser(username, idSesion);
+        //createGUser(username, idSesion);
         sessionStorage.setItem("idSesion", idSesion);
         window.location.href = '/adivinar.html';
     }
