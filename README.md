@@ -4,4 +4,4 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/fcf2d68e77c34eac9dd8f9ec32a6aee7)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECI-DRAW/ECI-DRAW-2022&amp;utm_campaign=Badge_Grade)
 
-https://ecidraw.up.railway.app/
+http://ecidraw.eastus.cloudapp.azure.com:8080/
