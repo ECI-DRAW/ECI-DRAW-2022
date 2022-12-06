@@ -1,14 +1,12 @@
 async function userId() {
     const xhttp = new XMLHttpRequest();
-    //var name = document.getElementsByName("userId")[0].value;
-    //var drawName = document.getElementsByName("drawingId")[0].value;
     var idSesion = document.getElementsByName("idSesion")[0].value;
     var username = document.getElementsByName("gUserId")[0].value;
     try {
         const guestu = await createGUser(username, idSesion);
     } catch (error) {
-        //createGUser(username, idSesion);
         sessionStorage.setItem("idSesion", idSesion);
+        sessionStorage.setItem("username", username);
         window.location.href = '/adivinar.html';
     }
 }

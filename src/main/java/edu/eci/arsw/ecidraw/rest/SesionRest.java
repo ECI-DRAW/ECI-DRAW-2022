@@ -12,16 +12,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.eci.arsw.ecidraw.entities.Users;
 import edu.eci.arsw.ecidraw.entities.Sesion;
-import edu.eci.arsw.ecidraw.entities.UsersXSesion;
 import edu.eci.arsw.ecidraw.services.SesionService;
-import edu.eci.arsw.ecidraw.services.UsersService;
-import edu.eci.arsw.ecidraw.services.UsersXSessionService;
 
 @RestController
 @RequestMapping(value = "/api/sesions")

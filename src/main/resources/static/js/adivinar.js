@@ -1,4 +1,5 @@
 var stomp;
+var won;
 
 function setup() {
     createCanvas(850, 430);
@@ -8,10 +9,9 @@ function setup() {
 function stomp() {
     var socket = new SockJS("/stompEndpoint");
     stompClient = Stomp.over(socket);
-    var flag = JSON.parse('true');
     stompClient.connect({}, function (frame) {
-        refresh(flag);
         stompClient.subscribe("/topic/board/" + sessionStorage.getItem("idSesion"), function (event) {
+            won = false;
             var json = JSON.parse(event.body);
             if (!json.eraser) {
                 fill(json.colors);
@@ -41,10 +41,17 @@ function getAnswer(idSesion, guess) {
         .then(data => {
             var ans = data["answer"];
             if (guess == ans) {
+                won = true;
                 alert("¡Correcto!");
+                sendMessage();
             } else {
                 alert("Intente de nuevo");
             }
             document.getElementById("btnguess").innerHTML = "Adivinar";
         })
+}
+
+function sendMessage() {
+    var text = "El usuario " + sessionStorage.getItem("username") + " ha ganado la partida!!!";
+    stompClient.send("/topic/chat/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify({ 'text': text }));
 }

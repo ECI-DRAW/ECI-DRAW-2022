@@ -7,9 +7,6 @@ async function userId() {
         const ses = await createSesion(idSesion, name, answer);
         sessionStorage.setItem("idSesion", idSesion);
         sessionStorage.setItem("answer", answer);
-        //const us = await createUser(name);
-        //const usxses = await connectUserxSesion(name, idSesion);
-        //setTimeout(() => { us }, 1500);
         window.location.href = "/dibujar.html";
     } catch (error) {
     }
@@ -21,28 +18,4 @@ function createSesion(idSesion, name, answer) {
             .then(response => resolve(response.json()))
             .catch(error => reject(error))
     })
-}
-
-function createUser(username) {
-    return new Promise((resolve, reject) => {
-        fetch("/api/users/newuser?username=" + username, { method: "POST" })
-            .then(response => resolve(response.json()))
-            .catch(error => reject(error))
-    })
-}
-
-function busca(username) {
-    return new Promise((resolve, reject) => {
-        fetch("/api/users/getUserByName?username=" + username, { method: "GET" })
-            .then(response => resolve(response.json()))
-            .catch(error => reject(error))
-    })
-}
-
-function connectUserxSesion(user, idSesion) {
-    return new Promise((resolve, reject) => {
-        fetch("/api/usersxsesion/newUserXSesion?username=" + user + "&idSesion=" + idSesion, { method: "POST" })
-            .then(response => resolve(response.json()))
-            .catch(error => reject(error))
-    });
 }

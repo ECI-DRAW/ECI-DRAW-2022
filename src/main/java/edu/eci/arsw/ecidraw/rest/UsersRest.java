@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.eci.arsw.ecidraw.entities.Sesion;
 import edu.eci.arsw.ecidraw.entities.Users;
-import edu.eci.arsw.ecidraw.services.SesionService;
 import edu.eci.arsw.ecidraw.services.UsersService;
 
 @RestController
@@ -23,7 +21,6 @@ public class UsersRest {
 
     @Autowired
     private UsersService usersService;
-    private SesionService sesionService;
 
     @PostMapping("/newuser")
     private ResponseEntity<Users> createUser(@PathParam("username") String username) {
