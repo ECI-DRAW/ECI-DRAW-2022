@@ -69,3 +69,10 @@ function lineWidthSetter() {
     lineWidth = document.getElementById("lineWidth").value;
     strokeWeight(lineWidth);
 }
+
+function getData() {
+    var idSesion = sessionStorage.getItem("idSesion");
+    var name = sessionStorage.getItem("name");
+    document.getElementById("idSesion").innerHTML = idSesion;
+    document.getElementById("name").innerHTML = name;
+}

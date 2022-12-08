@@ -53,5 +53,12 @@ function getAnswer(idSesion, guess) {
 
 function sendMessage() {
     var text = "El usuario " + sessionStorage.getItem("username") + " ha ganado la partida!!!";
-    stompClient.send("/topic/chat/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify({ 'text': text }));
+    stompClient.send("/topic/board/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify({ 'text': text }));
+}
+
+function getData() {
+    var idSesion = sessionStorage.getItem("idSesion");
+    var username = sessionStorage.getItem("username");
+    document.getElementById("idSesion").innerHTML = idSesion;
+    document.getElementById("username").innerHTML = username;
 }

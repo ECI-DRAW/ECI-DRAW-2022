@@ -6,9 +6,11 @@ async function userId() {
     try {
         const ses = await createSesion(idSesion, name, answer);
         sessionStorage.setItem("idSesion", idSesion);
+        sessionStorage.setItem("name", name);
         sessionStorage.setItem("answer", answer);
         window.location.href = "/dibujar.html";
     } catch (error) {
+        alert("Sesion no encontrada");
     }
 }
 
