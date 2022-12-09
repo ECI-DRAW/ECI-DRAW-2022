@@ -8,13 +8,13 @@ async function userId() {
     sessionStorage.setItem("answer", answer);
     try {
         if (name == "" || idSesion == "" || answer == "") {
-            alert("No puede dejar campos vacios");
+            alert("Por favor complete todos los campos.");
         } else {
             const ses = await createSesion(idSesion, name, answer);
             window.location.href = "/dibujar.html";
         }
     } catch (error) {
-        alert("Sesion no encontrada");
+        alert("La sesión ya existe, por favor ingrese otro número.");
     }
 }
 

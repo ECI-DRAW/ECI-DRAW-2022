@@ -6,7 +6,7 @@ async function userId() {
     sessionStorage.setItem("username", username);
     try {
         if (username == "" || idSesion == "") {
-            alert("No puede dejar campos vacios");
+            alert("Por favor complete todos los campos.");
         } else {
             const guestu = await createGUser(username, idSesion);
         }
