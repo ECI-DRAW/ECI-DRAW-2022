@@ -22,11 +22,23 @@ function stomp() {
                 clear();
             }
         });
+        stompClient.subscribe("/topic/win/" + sessionStorage.getItem("idSesion"), function (event) {
+            alert(event.body);
+            clearBoard();
+        });
     });
 }
 
 function refresh(json) {
     stompClient.send("/topic/board/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify(json));
+}
+
+function clearBoard() {
+    clear();
+    var json = {
+        eraser: true,
+    }
+    refresh(json);
 }
 
 function adivinar() {
@@ -52,13 +64,22 @@ function getAnswer(idSesion, guess) {
 }
 
 function sendMessage() {
-    var text = "El usuario " + sessionStorage.getItem("username") + " ha ganado la partida!!!";
-    stompClient.send("/topic/board/" + sessionStorage.getItem("idSesion"), {}, JSON.stringify({ 'text': text }));
+    var text = "" + sessionStorage.getItem("username") + " ha ganado la partida!!!";
+    stompClient.send("/topic/win/" + sessionStorage.getItem("idSesion"), {}, text);
 }
 
 function getData() {
-    var idSesion = sessionStorage.getItem("idSesion");
-    var username = sessionStorage.getItem("username");
-    document.getElementById("idSesion").innerHTML = idSesion;
-    document.getElementById("username").innerHTML = username;
+    if (sessionStorage.getItem("idSesion") == null && sessionStorage.getItem("username") == null) {
+        window.location.href = "/index.html";
+    } else {
+        var idSesion = sessionStorage.getItem("idSesion");
+        var username = sessionStorage.getItem("username");
+        document.getElementById("idSesion").innerHTML = idSesion;
+        document.getElementById("username").innerHTML = username;
+    }
+}
+
+function salir() {
+    sessionStorage.clear();
+    window.location.href = "/index.html";
 }

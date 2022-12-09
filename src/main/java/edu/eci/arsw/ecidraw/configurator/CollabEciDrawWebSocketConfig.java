@@ -14,7 +14,7 @@ public class CollabEciDrawWebSocketConfig implements WebSocketMessageBrokerConfi
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/topic", "/chat");
+        config.enableSimpleBroker("/topic");
     }
 
     @Override

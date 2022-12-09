@@ -2,11 +2,15 @@ async function userId() {
     const xhttp = new XMLHttpRequest();
     var idSesion = document.getElementsByName("idSesion")[0].value;
     var username = document.getElementsByName("gUserId")[0].value;
+    sessionStorage.setItem("idSesion", idSesion);
+    sessionStorage.setItem("username", username);
     try {
-        const guestu = await createGUser(username, idSesion);
+        if (username == "" || idSesion == "") {
+            alert("No puede dejar campos vacios");
+        } else {
+            const guestu = await createGUser(username, idSesion);
+        }
     } catch (error) {
-        sessionStorage.setItem("idSesion", idSesion);
-        sessionStorage.setItem("username", username);
         window.location.href = '/adivinar.html';
     }
 }

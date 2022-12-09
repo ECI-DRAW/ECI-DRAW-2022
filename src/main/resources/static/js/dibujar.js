@@ -42,6 +42,10 @@ function stomp() {
                 clear();
             }
         });
+        stompClient.subscribe("/topic/win/" + sessionStorage.getItem("idSesion"), function (event) {
+            alert(event.body);
+            clearBoard();
+        });
     });
 }
 
@@ -71,8 +75,17 @@ function lineWidthSetter() {
 }
 
 function getData() {
-    var idSesion = sessionStorage.getItem("idSesion");
-    var name = sessionStorage.getItem("name");
-    document.getElementById("idSesion").innerHTML = idSesion;
-    document.getElementById("name").innerHTML = name;
+    if (sessionStorage.getItem("idSesion") == null || sessionStorage.getItem("name") == null) {
+        window.location.href = "/index.html";
+    } else {
+        var idSesion = sessionStorage.getItem("idSesion");
+        var name = sessionStorage.getItem("name");
+        document.getElementById("idSesion").innerHTML = idSesion;
+        document.getElementById("name").innerHTML = name;
+    }
+}
+
+function salir() {
+    sessionStorage.clear();
+    window.location.href = "/index.html";
 }
